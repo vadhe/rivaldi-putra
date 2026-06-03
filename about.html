@@ -1,0 +1,91 @@
+---
+layout: layout.html
+title: About
+---
+
+<div class="max-w-6xl mx-auto">
+    <div class="flourish my-10 max-w-3xl mx-auto">
+        <span class="flourish-ornament" aria-hidden>❦</span>
+    </div>
+    <div class="grid lg:grid-cols-[2fr_1fr] gap-12">
+        <div>
+            <div class="text-center lg:text-left">
+                <h1
+                    class="font-serif font-black text-4xl md:text-6xl tracking-tight"
+                >
+                    THE ENGINEER'S NARRATIVE
+                </h1>
+            </div>
+            <Flourish />
+            <div
+                class="grid md:grid-cols-2 gap-8 text-foreground/85 leading-relaxed"
+            >
+                <p>
+                    My 5+ years of experience and philosophy in frontend
+                    engineering reflect a steady commitment to craft — building,
+                    refining, and optimizing applications used by thousands of
+                    people daily, from analytics consoles to mission-critical
+                    dashboards.
+                </p>
+                <p>
+                    Frontend engineering is the connective tissue of product:
+                    enterprise applications, GIS platforms, and complex
+                    dashboards at Zero One Group. I work primarily in React and
+                    Next.js, with a deep love for modern web technologies and
+                    craft that feels intuitive in the hand.
+                </p>
+            </div>
+        </div>
+
+        <aside class="ornate-frame self-start py-10 px-8 text-center">
+            <h3 class="font-serif text-xl tracking-[0.15em] text-gold">
+                CORE<br />PROFICIENCIES
+            </h3>
+            <div class="my-4 h-px bg-gold opacity-60 mx-auto w-2/3" />
+            <p class="text-foreground/85">React, Next.js,<br />TypeScript</p>
+        </aside>
+    </div>
+
+    <section class="mt-20">
+        <h2 class="font-serif text-3xl mb-10">Experience</h2>
+        <div class="relative">
+            <div
+                class="absolute top-1/2 left-0 right-0 h-px bg-gold opacity-70"
+            />
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
+                <!--{EXPERIENCE.map((e) => (
+                <div key="{e.date}" class="relative text-center">
+                    <div class="text-sm text-foreground/70 mb-6">{e.date}</div>
+                    <div class="relative flex justify-center mb-6">
+                        <span
+                            class="block size-3 rounded-full border border-gold bg-background"
+                        />
+                    </div>
+                    <div class="font-semibold text-foreground">{e.role}</div>
+                    <div class="text-foreground/70 text-sm mt-1">
+                        {e.company}
+                    </div>
+                </div>
+                ))}-->
+                {% for item in experience %}
+                <div class="relative text-center">
+                    <div class="text-sm text-foreground/70 mb-6">
+                        {{ item.date }}
+                    </div>
+                    <div class="relative flex justify-center mb-6">
+                        <span
+                            class="block size-3 rounded-full border border-gold bg-background"
+                        />
+                    </div>
+                    <div class="font-semibold text-foreground">
+                        {{ item.role }}
+                    </div>
+                    <div class="text-foreground/70 text-sm mt-1">
+                        {{ item.company }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>
