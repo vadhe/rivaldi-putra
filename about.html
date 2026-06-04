@@ -5,7 +5,7 @@ title: About
 
 <div class="max-w-6xl mx-auto">
     <div class="flourish my-10 max-w-3xl mx-auto">
-        <span class="flourish-ornament" aria-hidden>❦</span>
+        <span class="flourish-ornament" aria-hidden>༻❁✿❀༺</span>
     </div>
     <div class="grid lg:grid-cols-[2fr_1fr] gap-12">
         <div>
@@ -16,76 +16,123 @@ title: About
                     THE ENGINEER'S NARRATIVE
                 </h1>
             </div>
-            <Flourish />
+            <div class="flourish my-10 max-w-3xl mx-auto">
+                <span class="flourish-ornament" aria-hidden>༻❁✿❀༺</span>
+            </div>
             <div
                 class="grid md:grid-cols-2 gap-8 text-foreground/85 leading-relaxed"
             >
                 <p>
-                    My 5+ years of experience and philosophy in frontend
-                    engineering reflect a steady commitment to craft — building,
-                    refining, and optimizing applications used by thousands of
-                    people daily, from analytics consoles to mission-critical
-                    dashboards.
+                    <span
+                        class="font-serif text-5xl float-left leading-none pr-2 pt-1 text-gold"
+                        >O</span
+                    >
+                    ver the past 5+ years, I have worked across enterprise web
+                    applications, GIS platforms, internal tools, and complex
+                    dashboards — building interfaces that are not only usable,
+                    but reliable in real production environments.
                 </p>
                 <p>
-                    Frontend engineering is the connective tissue of product:
-                    enterprise applications, GIS platforms, and complex
-                    dashboards at Zero One Group. I work primarily in React and
-                    Next.js, with a deep love for modern web technologies and
-                    craft that feels intuitive in the hand.
+                    I specialize in frontend engineering with React, Next.js,
+                    Vue, and TypeScript, with a strong focus on API integration,
+                    state management, performance, maintainability, and clear
+                    user experience.
                 </p>
             </div>
         </div>
 
-        <aside class="ornate-frame self-start py-10 px-8 text-center">
+        <aside class="ornate-frame self-start py-6 text-center">
             <h3 class="font-serif text-xl tracking-[0.15em] text-gold">
                 CORE<br />PROFICIENCIES
             </h3>
-            <div class="my-4 h-px bg-gold opacity-60 mx-auto w-2/3" />
-            <p class="text-foreground/85">React, Next.js,<br />TypeScript</p>
+            <div
+                class="my-3 h-px bg-gold opacity-60 mx-auto w-2/3"
+            ></div>
+            <p className="text-foreground/85 text-sm">React, Next.js,<br />TypeScript</p>
+            <div
+                class="mt-5 mx-auto w-full max-w-55 overflow-hidden rounded-sm border border-gold/50"
+            >
+                <!--<img src={} alt="Portrait of Rivaldi Putra" class="w-full h-auto block" />-->
+                <img
+                    src="/images/portrait.jpg"
+                    alt="Portrait of Rivaldi Putra"
+                    width="1536"
+                    height="2048"
+                    class="w-full h-auto block"
+                />
+            </div>
         </aside>
     </div>
 
-    <section class="mt-20">
-        <h2 class="font-serif text-3xl mb-10">Experience</h2>
-        <div class="relative">
+    <section class="mt-16">
+        <h2 class="font-serif text-2xl mb-6">Experience</h2>
+        <div class="border-t border-gold/40">
+            {% for item in experience %}
             <div
-                class="absolute top-1/2 left-0 right-0 h-px bg-gold opacity-70"
-            />
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
-                <!--{EXPERIENCE.map((e) => (
-                <div key="{e.date}" class="relative text-center">
-                    <div class="text-sm text-foreground/70 mb-6">{e.date}</div>
-                    <div class="relative flex justify-center mb-6">
-                        <span
-                            class="block size-3 rounded-full border border-gold bg-background"
-                        />
-                    </div>
-                    <div class="font-semibold text-foreground">{e.role}</div>
-                    <div class="text-foreground/70 text-sm mt-1">
-                        {e.company}
-                    </div>
-                </div>
-                ))}-->
-                {% for item in experience %}
-                <div class="relative text-center">
-                    <div class="text-sm text-foreground/70 mb-6">
-                        {{ item.date }}
-                    </div>
-                    <div class="relative flex justify-center mb-6">
-                        <span
-                            class="block size-3 rounded-full border border-gold bg-background"
-                        />
-                    </div>
+                class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-3 py-5 border-b border-gold/40"
+            >
+                <div>
                     <div class="font-semibold text-foreground">
                         {{ item.role }}
                     </div>
-                    <div class="text-foreground/70 text-sm mt-1">
+                    <div class="text-foreground/70 text-sm italic mt-1">
                         {{ item.company }}
                     </div>
+                    {% if item.tags %}
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        {% for tag in item.tags %}
+                        <span
+                            class="text-[10px] tracking-widest px-2 py-1 border border-gold/60 text-gold"
+                        >
+                            {{ tag }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                 </div>
-                {% endfor %}
+                <div
+                    class="text-xs tracking-widest text-gold md:text-right md:pt-1"
+                >
+                    {{ item.date }}
+                </div>
             </div>
+            {% endfor %}
         </div>
     </section>
+    <section class="mt-16">
+        <h2 class="font-serif text-2xl mb-6">Technical Skills</h2>
+        <div
+            class="border-t border-gold/40 pt-6 grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-8"
+        >
+            {% for s in skills %}
+            <div>
+                <h3 class="font-semibold mb-3">{{ s.title }}</h3>
+                <div class="flex flex-wrap gap-2">
+                    {% for i in s.items %}
+                    <span
+                        class="text-[10px] tracking-widest px-2 py-1 border border-gold/60 text-gold"
+                    >
+                        {{ i }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <section class="mt-16">
+           <h2 class="font-serif text-2xl mb-6">Certifications</h2>
+           <ul class="border-t border-gold/40">
+               {% for c in certifcations %}
+               <li  class="py-4 border-b border-gold/40 flex items-center gap-3 text-foreground/85">
+                 <span class="text-gold">✦</span>
+                 {{ c.title }}
+                 <a href="{{ c.url }}" target="_blank">(Certificate)</a>
+               </li>
+             {% endfor %}
+           </ul>
+         </section>
+         <div class="flourish my-10 max-w-3xl mx-auto">
+             <span class="flourish-ornament" aria-hidden>༻❁✿❀༺</span>
+         </div>
 </div>

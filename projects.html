@@ -1,0 +1,104 @@
+---
+layout: layout.html
+title: Projects
+---
+
+<div class="max-w-7xl mx-auto">
+    <h1 class="font-serif font-black text-4xl md:text-6xl tracking-tight">
+        SELECTED WORKS
+    </h1>
+    <div class="flourish my-8 max-w-xl">
+        <span class="flourish-ornament" aria-hidden>༻❁✿❀༺</span>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {% for item in projects %}
+        <article class="flex h-full flex-col gap-4">
+            <div class="ornate-frame aspect-[4/3]">
+                <div
+                    class="flex h-full items-end bg-[linear-gradient(135deg,oklch(0.97_0.015_85),oklch(0.86_0.05_75))] p-5"
+                >
+                    <span
+                        class="font-serif text-4xl font-black leading-none text-foreground/20"
+                    >
+                        0{{ forloop.index }}
+                    </span>
+                </div>
+            </div>
+            <h2 class="font-serif text-xl text-foreground">
+                {{ item.title }}
+            </h2>
+            <p class="text-sm leading-relaxed text-foreground/75">
+                {{ item.desc }}
+            </p>
+            <div class="flex flex-wrap gap-2">
+                {% for tag in item.tags %}
+                <span
+                    class="rounded-sm border border-gold/40 bg-gold/20 px-2.5 py-1 text-xs text-foreground/85"
+                >
+                    {{ tag }}
+                </span>
+                {% endfor %}
+            </div>
+            <a
+                href="{{ item.url }}"
+                class="mt-auto self-start text-sm text-foreground underline decoration-gold decoration-2 underline-offset-4 hover:text-gold"
+            >
+                Explore Case Study
+            </a>
+        </article>
+        {% endfor %}
+    </div>
+
+    <section class="mt-24">
+        <div class="max-w-3xl">
+            <h2 class="font-serif text-3xl md:text-4xl text-foreground">
+                Open Source Contributions
+            </h2>
+            <div class="flourish my-8 max-w-xl">
+                <span class="flourish-ornament" aria-hidden>༻❁✿❀༺</span>
+            </div>
+        </div>
+
+        <div class="grid mt-12 grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-8">
+            {% for item in openSourceContributions %}
+            <article class="border-b border-gold/40 pb-7">
+                <div
+                    class="mb-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs uppercase tracking-[0.18em] text-gold"
+                >
+                    <span>{{ item.type }}</span>
+                    <span aria-hidden="true">/</span>
+                    <span>{{ item.status }}</span>
+                    <span aria-hidden="true">/</span>
+                    <span>{{ item.mergedDate }}</span>
+                </div>
+                <h3 class="font-serif text-xl text-foreground">
+                    <a href="{{ item.prUrl }}" class="hover:text-gold">
+                        {{ item.title }}
+                    </a>
+                </h3>
+                <p class="mt-3 text-sm leading-relaxed text-foreground/75">
+                    {{ item.description }}
+                </p>
+                <div
+                    class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-foreground/80"
+                >
+                    <a
+                        href="{{ item.repositoryUrl }}"
+                        class="underline decoration-gold decoration-2 underline-offset-4 hover:text-gold"
+                    >
+                        {{ item.repository }}
+                    </a>
+                    <a
+                        href="{{ item.prUrl }}"
+                        class="underline decoration-gold decoration-2 underline-offset-4 hover:text-gold"
+                    >
+                        PR #{{ item.prNumber }}
+                    </a>
+                    <span>{{ item.comments }} comments</span>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+</div>
