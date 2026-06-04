@@ -1,0 +1,20 @@
+---
+layout: layout.html
+---
+
+<article class="article-shell mx-auto max-w-3xl">
+    <div class="article-meta">
+        <span>{{ category }}</span>
+        <span aria-hidden="true">/</span>
+        <time datetime="{{ date | date: '%Y-%m-%d' }}"
+            >{{ date | date: "%B %-d, %Y" }}</time
+        >
+    </div>
+    <h1 class="article-title">{{ title }}</h1>
+    <div class="flourish my-10 max-w-3xl mx-auto">
+        <span class="flourish-ornament" aria-hidden>⛧°. ⋆༺♱༻⋆. °⛧</span>
+    </div>
+    <div class="article-prose">
+        {{ content }}
+    </div>
+</article>

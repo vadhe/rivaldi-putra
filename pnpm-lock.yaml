@@ -12,7 +12,23 @@ dependencies:
     specifier: ^1.4.0
     version: 1.4.0
 
+devDependencies:
+  '@11ty/eleventy-plugin-syntaxhighlight':
+    specifier: ^5.0.2
+    version: 5.0.2
+
 packages:
+
+  /@11ty/eleventy-plugin-syntaxhighlight@5.0.2:
+    resolution: {integrity: sha512-T6xVVRDJuHlrFMHbUiZkHjj5o1IlLzZW+1IL9eUsyXFU7rY2ztcYhZew/64vmceFFpQwzuSfxQOXxTJYmKkQ+A==}
+    dependencies:
+      prismjs: 1.30.0
+    dev: true
+
+  /prismjs@1.30.0:
+    resolution: {integrity: sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw==}
+    engines: {node: '>=6'}
+    dev: true
 
   /tailwindcss@4.3.0:
     resolution: {integrity: sha512-y6nxMGB1nMW9R6k96e5gdIFzcfL/gTJRNaqGes1YvkLnPVXzWgbqFF2yLC0T8G774n24cx3Pe8XrKoniCOAH+Q==}

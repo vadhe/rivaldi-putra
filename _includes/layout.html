@@ -1,18 +1,71 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>{{ title }}</title>
+        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {% assign seoTitle = seo.title | default: title | default: site.name %}
+        {% assign seoDescription = seo.description | default: description |
+        default: site.description %} {% assign seoKeywords = seo.keywords |
+        default: keywords | default: site.keywords %} {% assign seoRobots =
+        seo.robots | default: robots | default: site.robots %} {% assign
+        canonicalPath = seo.canonicalPath | default: page.url %} {% assign
+        canonicalUrl = site.url | append: canonicalPath %} {% assign ogType =
+        seo.ogType | default: "website" %} {% assign ogImagePath = seo.image |
+        default: image | default: site.ogImage %} {% assign ogImageUrl =
+        ogImagePath %} {% unless ogImagePath contains "http" %} {% assign
+        ogImageUrl = site.url | append: ogImagePath %} {% endunless %}
+        <title>{{ seoTitle }}</title>
+        <meta name="description" content="{{ seoDescription }}" />
+        <meta name="keywords" content="{{ seoKeywords }}" />
+        <meta name="author" content="{{ site.author }}" />
+        <meta name="robots" content="{{ seoRobots }}" />
+        <link rel="canonical" href="{{ canonicalUrl }}" />
+        <meta property="og:type" content="{{ ogType }}" />
+        <meta property="og:url" content="{{ canonicalUrl }}" />
+        <meta property="og:title" content="{{ seoTitle }}" />
+        <meta property="og:description" content="{{ seoDescription }}" />
+        <meta property="og:image" content="{{ ogImageUrl }}" />
+        <meta property="og:site_name" content="{{ site.siteName }}" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="{{ canonicalUrl }}" />
+        <meta name="twitter:title" content="{{ seoTitle }}" />
+        <meta name="twitter:description" content="{{ seoDescription }}" />
+        <meta name="twitter:image" content="{{ ogImageUrl }}" />
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": {% if seo.schemaType %}"{{ seo.schemaType }}"{% else %}"Person"{% endif %},
+              "name": "{{ site.name }}",
+              "url": "{{ site.url }}/",
+              "jobTitle": "{{ site.jobTitle }}",
+              "email": "{{ site.email }}",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "ID"
+              },
+              "knowsAbout": {{ site.knowsAbout | jsonify }},
+              "sameAs": {{ site.sameAs | jsonify }}
+            }
+        </script>
         <link rel="preload" href="/index.css" as="style" />
         <link href="/index.css" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link rel="preload" fetchpriority="high" as="image"  href="/images/portrait.jpg" type="image/webp">
+        <link
+            rel="preload"
+            fetchpriority="high"
+            as="image"
+            href="/images/portrait.jpg"
+            type="image/webp"
+        />
         <link
             rel="preload"
             href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap"
             as="style"
-            onload="this.onload=null;this.rel='stylesheet'"
+            onload="
+                this.onload = null;
+                this.rel = 'stylesheet';
+            "
         />
         <noscript>
             <link

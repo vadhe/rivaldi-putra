@@ -1,6 +1,7 @@
 ---
 layout: layout.html
-title: About
+title: About | Rivaldi Putra
+description: Learn more about Rivaldi Putra, a frontend and product engineer building enterprise web applications, GIS platforms, and production dashboards.
 ---
 
 <div class="max-w-6xl mx-auto">
@@ -42,9 +43,9 @@ title: About
         </div>
 
         <aside class="ornate-frame self-start py-6 text-center">
-            <h3 class="font-serif text-xl tracking-[0.15em] text-gold">
+            <h2 class="font-serif text-xl tracking-[0.15em]">
                 CORE<br />PROFICIENCIES
-            </h3>
+            </h2>
             <div
                 class="my-3 h-px bg-gold opacity-60 mx-auto w-2/3"
             ></div>
@@ -52,12 +53,14 @@ title: About
             <div
                 class="mt-5 mx-auto w-full max-w-55 overflow-hidden rounded-sm border border-gold/50"
             >
-                <!--<img src={} alt="Portrait of Rivaldi Putra" class="w-full h-auto block" />-->
                 <img
-                    src="/images/portrait.jpg"
                     alt="Portrait of Rivaldi Putra"
-                    width="1536"
-                    height="2048"
+                    width="1200"
+                    height="1400"
+                    sizes="(max-width: 600px) 100vw, 50vw"
+                    src="/images/portrait-400.jpg"
+                    srcset="/images/portrait-400.jpg 400w, /images/portrait-800.jpg 800w, /images/portrait-1200.jpg 1200w"
+                    fetchpriority="high"
                     class="w-full h-auto block"
                 />
             </div>
@@ -75,9 +78,9 @@ title: About
                     <div class="font-semibold text-foreground">
                         {{ item.role }}
                     </div>
-                    <div class="text-foreground/70 text-sm italic mt-1">
+                    <a href="{{ item.link }}" target="_blank" class="text-foreground/70 text-sm italic mt-1">
                         {{ item.company }}
-                    </div>
+                    </a>
                     {% if item.tags %}
                     <div class="flex flex-wrap gap-2 mt-3">
                         {% for tag in item.tags %}
@@ -89,6 +92,14 @@ title: About
                         {% endfor %}
                     </div>
                     {% endif %}
+                    <ul class="mt-6">
+                        {% for c in item.job %}
+                        <li  class="py-2 flex items-center gap-3 text-foreground/85">
+                          <span class="text-gold">✦</span>
+                          {{ c }}
+                        </li>
+                      {% endfor %}
+                    </ul>
                 </div>
                 <div
                     class="text-xs tracking-widest text-gold md:text-right md:pt-1"
@@ -120,7 +131,7 @@ title: About
             {% endfor %}
         </div>
     </section>
-    <section class="mt-16">
+    <!--<section class="mt-16">
            <h2 class="font-serif text-2xl mb-6">Certifications</h2>
            <ul class="border-t border-gold/40">
                {% for c in certifcations %}
@@ -131,8 +142,6 @@ title: About
                </li>
              {% endfor %}
            </ul>
-         </section>
-         <div class="flourish my-10 max-w-3xl mx-auto">
-             <span class="flourish-ornament" aria-hidden>༻❁✿❀༺</span>
-         </div>
+         </section>-->
+
 </div>
