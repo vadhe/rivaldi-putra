@@ -84,29 +84,7 @@
                         {% if page.url == "/" %}data-active="true" aria-current="page"{% endif %}
                         >Home</a
                     >
-                    <div class="flex items-center gap-6 md:hidden">
-                        <details class="mobile-menu relative">
-                            <summary
-                                class="flex size-9 cursor-pointer list-none items-center justify-center text-foreground"
-                                aria-label="Open navigation"
-                            >
-                                <span class="mobile-menu-icon" aria-hidden></span>
-                            </summary>
-                            <div
-                                class="absolute left-0 top-12 z-10 min-w-40 border border-gold/50 bg-background p-4 shadow-[0_18px_36px_-24px_oklch(0.2_0.05_250_/_0.45)]"
-                            >
-                                <a href="/" class="block py-2 nav-link">Home</a>
-                                <a href="/about/" class="block py-2 nav-link"
-                                    >About</a
-                                >
-                                <a href="/blog/" class="block py-2 nav-link"
-                                    >Blog</a
-                                >
-                                <a href="/projects/" class="block py-2 nav-link"
-                                    >Projects</a
-                                >
-                            </div>
-                        </details>
+                    <div class="flex items-center md:hidden">
                         <a
                             href="/"
                             class="font-serif text-4xl font-black leading-none text-foreground"
@@ -137,7 +115,9 @@
                 <div class="mt-4 h-px w-full bg-gold opacity-70" />
             </header>
 
-            <main class="flex-1 px-7 py-10 md:px-16">{{ content }}</main>
+            <main class="flex-1 px-7 py-10 pb-36 md:px-16 md:pb-10">
+                {{ content }}
+            </main>
 
             <footer class="px-7 pb-8 text-center md:px-16 md:text-left">
                 <div class="flourish my-10 max-w-3xl mx-auto">
@@ -149,5 +129,39 @@
                 </p>
             </footer>
         </div>
+        <nav class="mobile-dock md:hidden" aria-label="Mobile navigation">
+            <a
+                href="/"
+                class="mobile-dock-link"
+                {% if page.url == "/" %}data-active="true" aria-current="page"{% endif %}
+            >
+                <span class="mobile-dock-icon mobile-dock-icon-home" aria-hidden="true"></span>
+                <span>Home</span>
+            </a>
+            <a
+                href="/about/"
+                class="mobile-dock-link"
+                {% if page.url == "/about/" %}data-active="true" aria-current="page"{% endif %}
+            >
+                <span class="mobile-dock-icon mobile-dock-icon-user" aria-hidden="true"></span>
+                <span>About</span>
+            </a>
+            <a
+                href="/projects/"
+                class="mobile-dock-link"
+                {% if page.url == "/projects/" %}data-active="true" aria-current="page"{% endif %}
+            >
+                <span class="mobile-dock-icon mobile-dock-icon-briefcase" aria-hidden="true"></span>
+                <span>Projects</span>
+            </a>
+            <a
+                href="/blog/"
+                class="mobile-dock-link"
+                {% if page.url == "/blog/" %}data-active="true" aria-current="page"{% endif %}
+            >
+                <span class="mobile-dock-icon mobile-dock-icon-note" aria-hidden="true"></span>
+                <span>Blog</span>
+            </a>
+        </nav>
     </body>
 </html>
