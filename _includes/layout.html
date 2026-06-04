@@ -78,6 +78,62 @@
         </noscript>
     </head>
     <body>
+        <div
+            class="loading-screen"
+            data-loading-screen
+            aria-hidden="false"
+            role="status"
+        >
+            <div class="loading-inner">
+                <svg
+                    class="hourglass"
+                    viewBox="0 0 120 160"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-label="Loading"
+                >
+                    <circle
+                        cx="60"
+                        cy="80"
+                        r="50"
+                        fill="oklch(0.9 0.1 75 / 0.25)"
+                    ></circle>
+                    <rect x="20" y="10" width="80" height="6" rx="2" fill="var(--gold)"></rect>
+                    <rect x="20" y="144" width="80" height="6" rx="2" fill="var(--gold)"></rect>
+                    <path
+                        d="M28 16 L92 16 L66 78 L92 144 L28 144 L54 82 Z"
+                        stroke="var(--gold)"
+                        stroke-width="2.5"
+                        fill="oklch(0.97 0.02 85 / 0.4)"
+                    ></path>
+                    <path class="sand-top" d="M34 22 L86 22 L62 76 L58 76 Z" fill="var(--gold)"></path>
+                    <path
+                        class="sand-bottom"
+                        d="M40 138 L80 138 L72 110 L48 110 Z"
+                        fill="var(--gold)"
+                    ></path>
+                    <rect
+                        class="sand-stream"
+                        x="59"
+                        y="78"
+                        width="2"
+                        height="32"
+                        fill="var(--gold)"
+                    ></rect>
+                </svg>
+
+                <div class="progress-frame">
+                    <span class="progress-orn" aria-hidden>❦</span>
+                    <div class="progress-track">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-orn" aria-hidden>❦</span>
+                </div>
+
+                <p class="loading-title">Consulting Archives...</p>
+                <p class="loading-sub">Establishing Connection...</p>
+            </div>
+        </div>
         <div class="min-h-screen flex flex-col">
             <header class="px-7 pt-8 md:px-16">
                 <nav class="flex items-center justify-between text-[15px]">
@@ -166,5 +222,41 @@
                 <span>Blog</span>
             </a>
         </nav>
+        <script>
+            (() => {
+                const screen = document.querySelector("[data-loading-screen]");
+                if (!screen) return;
+
+                const sessionKey = "rivaldi-portfolio-loader-seen";
+                if (sessionStorage.getItem(sessionKey) === "true") {
+                    screen.remove();
+                    return;
+                }
+
+                sessionStorage.setItem(sessionKey, "true");
+
+                requestAnimationFrame(() => {
+                    screen.classList.add("loading-screen--mounted");
+                });
+
+                const t1 = setTimeout(() => {
+                    screen.classList.add("loading-screen--out");
+                    screen.setAttribute("aria-hidden", "true");
+                }, 2200);
+
+                const t2 = setTimeout(() => {
+                    screen.remove();
+                }, 2800);
+
+                window.addEventListener(
+                    "pagehide",
+                    () => {
+                        clearTimeout(t1);
+                        clearTimeout(t2);
+                    },
+                    { once: true }
+                );
+            })();
+        </script>
     </body>
 </html>
