@@ -2,7 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
         {% assign seoTitle = seo.title | default: title | default: site.name %}
         {% assign seoDescription = seo.description | default: description |
         default: site.description %} {% assign seoKeywords = seo.keywords |
@@ -112,10 +115,10 @@
                         >
                     </div>
                 </nav>
-                <div class="mt-4 h-px w-full bg-gold opacity-70" />
+                <div class="mt-4 h-px w-full bg-gold opacity-70"></div>
             </header>
 
-            <main class="flex-1 px-7 py-10 pb-36 md:px-16 md:pb-10">
+            <main class="flex-1 px-7 py-10 pb-[calc(7.5rem+env(safe-area-inset-bottom))] md:px-16 md:pb-10">
                 {{ content }}
             </main>
 
@@ -123,7 +126,7 @@
                 <div class="flourish my-10 max-w-3xl mx-auto">
                     <span class="flourish-ornament" aria-hidden>༻❁✿❀༺</span>
                 </div>
-                <div class="h-px w-full bg-gold opacity-60 mb-4" />
+                <div class="h-px w-full bg-gold opacity-60 mb-4"></div>
                 <p class="text-sm text-muted-foreground">
                     © 2026 Rivaldi Putra. All Rights Reserved.
                 </p>
