@@ -75,11 +75,12 @@ title: Home
         <div class="order-1 flex justify-center lg:order-2 lg:justify-end">
             <div class="ornate-frame w-full max-w-76 md:max-w-sm">
                 <img
-                    src="/images/portrait.jpg"
                     alt="Portrait of Rivaldi Putra"
-                    width="1536"
-                    height="2048"
-                    loading="lazy"
+                    width="1200"
+                    height="1400"
+                    sizes="(max-width: 600px) 100vw, 50vw"
+                    src="/images/portrait-400.jpg"
+                    srcset="/images/portrait-400.jpg 400w, /images/portrait-800.jpg 800w, /images/portrait-1200.jpg 1200w"
                     fetchpriority="high"
                     class="block aspect-square w-full object-cover object-top md:aspect-auto md:h-auto"
                 />
