@@ -11,6 +11,7 @@ module.exports = {
     "Rivaldi Putra, Frontend Engineer Indonesia, Product Engineer, React Developer, Next.js Developer, Vue Developer, TypeScript Developer, Web Developer Indonesia, GIS Dashboard Developer",
   robots: "index, follow",
   ogImage: "/og-image.png",
+  googleAnalyticsId: process.env.GA_MEASUREMENT_ID || "",
   sameAs: [
     "https://github.com/aldyvadhe",
     "https://www.linkedin.com/in/aldyvadhe",
