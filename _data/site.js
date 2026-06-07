@@ -1,7 +1,7 @@
 module.exports = {
   name: "Rivaldi Putra",
   siteName: "Rivaldi Putra Portfolio",
-  url: "https://rivaldi-putra-dev.ar.io",
+  url: "https://www.rivaldi-putra.me",
   author: "Rivaldi Putra",
   email: "mailto:aldyvadhe@gmail.com",
   jobTitle: "Frontend and Product Engineer",
@@ -13,8 +13,8 @@ module.exports = {
   ogImage: "/og-image.png",
   googleAnalyticsId: process.env.GA_MEASUREMENT_ID || "",
   sameAs: [
-    "https://github.com/aldyvadhe",
-    "https://www.linkedin.com/in/aldyvadhe",
+    "https://github.com/vadhe_",
+    "https://www.linkedin.com/in/rivaldiptr",
   ],
   knowsAbout: [
     "Frontend Engineering",
