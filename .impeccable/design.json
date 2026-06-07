@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-07T00:00:00.000Z",
+  "title": "Design System: Rivaldi Putra Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "signal-ink": {
+        "role": "primary",
+        "displayName": "Signal Ink",
+        "canonical": "oklch(0.22 0.05 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.05 250)",
+          "oklch(0.22 0.05 250)",
+          "oklch(0.32 0.045 250)",
+          "oklch(0.44 0.04 250)",
+          "oklch(0.58 0.035 250)",
+          "oklch(0.72 0.025 250)",
+          "oklch(0.86 0.015 250)",
+          "oklch(0.95 0.008 250)"
+        ]
+      },
+      "calm-canvas": {
+        "role": "neutral",
+        "displayName": "Calm Canvas",
+        "canonical": "oklch(0.965 0.018 85)",
+        "tonalRamp": [
+          "oklch(0.18 0.018 85)",
+          "oklch(0.3 0.018 85)",
+          "oklch(0.44 0.018 85)",
+          "oklch(0.58 0.018 85)",
+          "oklch(0.72 0.018 85)",
+          "oklch(0.84 0.018 85)",
+          "oklch(0.92 0.018 85)",
+          "oklch(0.965 0.018 85)"
+        ]
+      },
+      "quiet-surface": {
+        "role": "neutral",
+        "displayName": "Quiet Surface",
+        "canonical": "oklch(0.97 0.015 85)",
+        "tonalRamp": [
+          "oklch(0.18 0.015 85)",
+          "oklch(0.32 0.015 85)",
+          "oklch(0.46 0.015 85)",
+          "oklch(0.6 0.015 85)",
+          "oklch(0.74 0.015 85)",
+          "oklch(0.86 0.015 85)",
+          "oklch(0.93 0.015 85)",
+          "oklch(0.97 0.015 85)"
+        ]
+      },
+      "measured-gold": {
+        "role": "primary",
+        "displayName": "Measured Gold",
+        "canonical": "oklch(0.72 0.11 75)",
+        "tonalRamp": [
+          "oklch(0.18 0.08 75)",
+          "oklch(0.28 0.09 75)",
+          "oklch(0.4 0.1 75)",
+          "oklch(0.52 0.11 75)",
+          "oklch(0.64 0.11 75)",
+          "oklch(0.72 0.11 75)",
+          "oklch(0.84 0.075 75)",
+          "oklch(0.94 0.04 75)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero name and major page titles only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page-level section titles with strong serif presence."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Readable explanations, project descriptions, article prose, and experience details."
+      }
+    },
+    "shadows": [
+      {
+        "name": "Frame Depth",
+        "value": "0 20px 40px -20px oklch(0.2 0.05 250 / 0.35)",
+        "purpose": "Use only for image frames or signature visual objects."
+      },
+      {
+        "name": "Dock Depth",
+        "value": "0 20px 40px -24px oklch(0.2 0.05 250 / 0.38)",
+        "purpose": "Use for fixed mobile navigation and similar floating interface chrome."
+      },
+      {
+        "name": "Code Depth",
+        "value": "0 14px 28px -22px oklch(0.2 0.05 250 / 0.45)",
+        "purpose": "Use for article code blocks only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "Page In",
+        "value": "380ms cubic-bezier(0.22, 0.61, 0.36, 1)",
+        "purpose": "Subtle page transition that must be disabled for reduced motion."
+      },
+      {
+        "name": "Loader Fade",
+        "value": "550ms ease",
+        "purpose": "Loading screen opacity and visibility transition."
+      },
+      {
+        "name": "Frame Rotate",
+        "value": "5s linear infinite",
+        "purpose": "Signature portrait-frame shimmer, disabled for reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Text Link",
+      "kind": "button",
+      "refersTo": "link-primary",
+      "description": "Default call-to-action pattern for resume, email, project, and profile links.",
+      "html": "<a class=\"ds-link-primary\" href=\"#\">View resume</a>",
+      "css": ".ds-link-primary { color: var(--foreground, oklch(0.22 0.05 250)); text-decoration: underline; text-decoration-color: var(--gold, oklch(0.72 0.11 75)); text-decoration-thickness: 2px; text-underline-offset: 0.22em; transition: color 0.2s ease; } .ds-link-primary:hover { color: var(--gold, oklch(0.72 0.11 75)); } .ds-link-primary:focus-visible { outline: 2px solid var(--gold, oklch(0.72 0.11 75)); outline-offset: 4px; }"
+    },
+    {
+      "name": "Gold Metadata Chip",
+      "kind": "chip",
+      "refersTo": "tag-gold",
+      "description": "Compact technology, skill, and status metadata chip.",
+      "html": "<span class=\"ds-chip-gold\">TypeScript</span>",
+      "css": ".ds-chip-gold { display: inline-flex; align-items: center; border: 1px solid color-mix(in oklab, var(--gold, oklch(0.72 0.11 75)) 60%, transparent); border-radius: 2px; background: color-mix(in oklab, var(--gold, oklch(0.72 0.11 75)) 20%, transparent); padding: 4px 10px; color: color-mix(in oklab, var(--foreground, oklch(0.22 0.05 250)) 85%, transparent); font-family: var(--font-sans, Inter, system-ui, sans-serif); font-size: 12px; line-height: 1; }"
+    },
+    {
+      "name": "Desktop Navigation Link",
+      "kind": "nav",
+      "refersTo": "link-primary",
+      "description": "Quiet desktop navigation item with a measured active underline.",
+      "html": "<a class=\"ds-nav-link\" data-active=\"true\" href=\"#\">Projects</a>",
+      "css": ".ds-nav-link { position: relative; display: inline-block; padding-bottom: 4px; color: var(--foreground, oklch(0.22 0.05 250)); font-family: var(--font-sans, Inter, system-ui, sans-serif); font-size: 15px; text-decoration: none; transition: color 0.2s ease; } .ds-nav-link[data-active=\"true\"]::after { content: \"\"; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--gold, oklch(0.72 0.11 75)); } .ds-nav-link:hover { color: var(--gold, oklch(0.72 0.11 75)); } .ds-nav-link:focus-visible { outline: 2px solid var(--gold, oklch(0.72 0.11 75)); outline-offset: 5px; }"
+    },
+    {
+      "name": "Portrait Frame",
+      "kind": "custom",
+      "refersTo": "portrait-frame",
+      "description": "Signature framed portrait treatment with quiet surface, gold rule, and soft archival depth.",
+      "html": "<div class=\"ds-portrait-frame\"><div class=\"ds-portrait-frame__image\"></div></div>",
+      "css": ".ds-portrait-frame { position: relative; width: 220px; aspect-ratio: 1; padding: 14px; border: 1px solid transparent; border-radius: 4px; background: var(--card, oklch(0.97 0.015 85)); box-shadow: 0 1px 0 oklch(1 0 0 / 0.6) inset, 0 20px 40px -20px oklch(0.2 0.05 250 / 0.35); } .ds-portrait-frame::after { content: \"\"; position: absolute; inset: 2px; border: 1px dashed color-mix(in oklab, var(--gold, oklch(0.72 0.11 75)) 60%, transparent); border-radius: 3px; pointer-events: none; } .ds-portrait-frame__image { width: 100%; height: 100%; border-radius: 2px; background: linear-gradient(135deg, color-mix(in oklab, var(--gold, oklch(0.72 0.11 75)) 18%, white), color-mix(in oklab, var(--foreground, oklch(0.22 0.05 250)) 18%, white)); }"
+    },
+    {
+      "name": "Mobile Dock",
+      "kind": "nav",
+      "refersTo": "mobile-dock",
+      "description": "Fixed mobile navigation shell with compact labels and subtle floating depth.",
+      "html": "<nav class=\"ds-mobile-dock\" aria-label=\"Mobile navigation\"><a class=\"ds-mobile-dock__link\" data-active=\"true\" href=\"#\">Home</a><a class=\"ds-mobile-dock__link\" href=\"#\">About</a><a class=\"ds-mobile-dock__link\" href=\"#\">Projects</a></nav>",
+      "css": ".ds-mobile-dock { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: min(100%, 300px); border: 1px solid color-mix(in oklab, var(--gold, oklch(0.72 0.11 75)) 42%, transparent); border-radius: 13.6px; background: color-mix(in oklab, var(--background, oklch(0.965 0.018 85)) 92%, white 8%); box-shadow: 0 20px 40px -24px oklch(0.2 0.05 250 / 0.38), 0 1px 0 oklch(1 0 0 / 0.6) inset; backdrop-filter: blur(14px); } .ds-mobile-dock__link { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 8px; color: color-mix(in oklab, var(--foreground, oklch(0.22 0.05 250)) 74%, white 26%); font-family: var(--font-sans, Inter, system-ui, sans-serif); font-size: 11px; font-weight: 600; text-decoration: none; transition: color 0.2s ease, transform 0.2s ease; } .ds-mobile-dock__link[data-active=\"true\"] { color: var(--foreground, oklch(0.22 0.05 250)); } .ds-mobile-dock__link:active { transform: translateY(1px); } .ds-mobile-dock__link:focus-visible { outline: 2px solid var(--gold, oklch(0.72 0.11 75)); outline-offset: -3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Systems Ledger",
+    "overview": "This design system should feel like a polished technical record: structured, legible, and quietly crafted. The page presents Rivaldi Putra as an engineer who values production clarity, so the visual system must make hierarchy, spacing, and interaction states feel intentional rather than decorative.\n\nThe current identity uses an archival serif, deep ink text, a restrained canvas, and measured gold accents. Preserve the calm editorial discipline already present, but do not let it slide into an AI-generated beige editorial template. Every flourish, frame, divider, and motion cue must support scanning, credibility, or conversion.",
+    "keyCharacteristics": [
+      "Quiet confidence with visible structure.",
+      "Serif display type used as a signature, not as decoration everywhere.",
+      "Gold accent used sparingly for links, dividers, active states, and frames.",
+      "Mobile-first readability with generous line-height and clear hit targets.",
+      "Subtle motion that respects reduced-motion settings."
+    ],
+    "rules": [
+      {
+        "name": "The Measured Gold Rule",
+        "body": "Gold is a signal, not a fill color. Keep it rare, mostly on lines, underlines, borders, active states, and small ornaments.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Beige Template Rule",
+        "body": "Calm Canvas may stay because it is already committed identity, but new sections must prove structure through layout and content, not by adding more parchment effects.",
+        "section": "colors"
+      },
+      {
+        "name": "The Serif Signature Rule",
+        "body": "Serif type is the identity marker. Use it for display hierarchy and selected titles, not for every small piece of interface text.",
+        "section": "typography"
+      },
+      {
+        "name": "The Readability Wins Rule",
+        "body": "Body text must stay dark enough against Calm Canvas. If a text color feels elegant but reads faint, it is wrong.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-Until-Meaningful Rule",
+        "body": "Do not add shadows to make plain content feel designed. Use shadow only when the object is physically layered or functionally floating.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the precise, craft-focused, grounded tone from PRODUCT.md through spacing, hierarchy, and readable content.",
+      "Do use Measured Gold for active states, link underlines, dividers, and frame details.",
+      "Do keep mobile readability strong with clear line-height, safe bottom spacing, and tappable navigation.",
+      "Do include reduced-motion alternatives for loading, page transitions, and frame animation.",
+      "Do make resume, email, LinkedIn, and project paths easy to find."
+    ],
+    "donts": [
+      "Don't make this feel like a generic SaaS landing page.",
+      "Don't make this feel like an overly corporate resume page.",
+      "Don't turn it into a flashy hacker or terminal-themed developer portfolio.",
+      "Don't add AI-generated beige editorial template patterns. The current canvas is identity, not permission to add more parchment styling.",
+      "Don't create a chaotic animation-heavy portfolio. Motion must stay subtle, useful, and non-distracting.",
+      "Don't use template-looking identical card grids, gradient text, side-stripe borders, or decorative glassmorphism."
+    ]
+  }
+}

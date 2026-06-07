@@ -1,19 +1,19 @@
 module.exports = [
   {
-    date: "JUL 2025 — DEC 2025",
+    date: "Jul 2025 to Dec 2025",
     role: "Product Engineer (Frontend)",
     company: "CUiT Indonesia",
     job: [
       "Improved dashboard UI consistency and usability by refactoring fragmented components and standardizing layouts across key modules.",
       "Resolved production frontend issues affecting core user flows, reducing UI inconsistencies and improving release stability.",
       "Refactored legacy frontend components to improve maintainability and reduce recurring UI regressions across key dashboard modules.",
-      "Used AI coding tools Claude Code to support frontend development, debugging, refactoring, and implementation planning.",
+      "Used Claude Code to support frontend development, debugging, refactoring, and implementation planning while reviewing output manually.",
     ],
     tags: ["Vue.js", "Pinia", "Tailwind CSS"],
     link: "https://cuit.id/",
   },
   {
-      date: "Mar 2022 — JUL 2025",
+      date: "Mar 2022 to Jul 2025",
       role: "Product Engineer II (Frontend)",
       company: "Zero One Group",
       job: [
@@ -24,7 +24,7 @@ module.exports = [
         "Contributed to internal design system, creating reusable UI components and patterns used across multiple client projects.",
         "Delivered across multiple stacks (React, Vue, Next.js, TypeScript) depending on project needs, including lightweight tools like HTMX and Alpine.js.",
         "Built and maintained data visualization dashboards using Recharts.js, implementing interactive charts, filters, loading/error states, and responsive layouts to help users analyze operational data more effectively.",
-        "Used AI coding Claude Code support frontend development, debugging, refactoring, and implementation planning while manually reviewing and validating the output.",
+        "Used Claude Code to support frontend development, debugging, refactoring, and implementation planning while manually reviewing and validating the output.",
       ],
     tags: [
       "React.js",
@@ -40,7 +40,7 @@ module.exports = [
     link: "https://zero-one-group.com/",
     },
     {
-      date: "SEP 2020 – JAN 2022",
+      date: "Sep 2020 to Jan 2022",
       role: "Frontend Developer",
       company: "Pallaka Studio",
       job: [
@@ -50,11 +50,11 @@ module.exports = [
         "Standardized UI patterns and component usage, ensuring consistency across multiple client projects.",
         "Delivered client-facing features end-to-end on the frontend, supporting iterative project requirements and tight delivery timelines.",
       ],
-      tags: ["Vue.js", "Tailwind CSS", "React.js", "Chakra ui", "Vuex", "TypeScript", "Vuetifyjs"],
+      tags: ["Vue.js", "Tailwind CSS", "React.js", "Chakra UI", "Vuex", "TypeScript", "Vuetify.js"],
       link: "https://pallakatechno.co.id/",
     },
     {
-      date: "FEB 2020 – JUL 2020",
+      date: "Feb 2020 to Jul 2020",
       role: "Frontend Developer",
       company: "Magau Jaya Digital",
       job: [
@@ -62,7 +62,7 @@ module.exports = [
         "Translated backend data structures into usable interfaces, ensuring accurate data flow and consistent user experience.",
         "Collaborated with backend developers to establish stable integration patterns, supporting initial platform development.",
       ],
-      tags: ["Vue.JS", "Tailwind CSS", "Vuex"],
+      tags: ["Vue.js", "Tailwind CSS", "Vuex"],
       link: "https://www.magaugroup.co.id/",
     },
 ];

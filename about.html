@@ -4,36 +4,35 @@ title: About | Rivaldi Putra
 description: Learn more about Rivaldi Putra, a frontend and product engineer building enterprise web applications, GIS platforms, and production dashboards.
 ---
 
-<div class="max-w-6xl mx-auto">
-    <div class="flourish my-10 max-w-3xl mx-auto">
-        <span class="flourish-ornament" aria-hidden>༻❁✿❀༺</span>
+<div class="surface-about color-wash max-w-6xl mx-auto">
+    <div class="color-kicker mb-10 mt-4 flex items-center gap-4 text-sm">
+        <span class="h-px w-12 bg-current/70" aria-hidden="true"></span>
+        <span class="font-medium tracking-[0.08em]">Production frontend, internal tools, data-heavy interfaces</span>
     </div>
-    <div class="grid lg:grid-cols-[2fr_1fr] gap-12">
+    <div class="grid gap-12 lg:grid-cols-[2fr_1fr] lg:gap-16">
         <div>
             <div class="text-center lg:text-left">
                 <h1
-                    class="font-serif font-black text-4xl md:text-6xl tracking-tight"
+                    class="title-motion font-serif text-5xl font-black leading-none tracking-tight text-foreground [text-wrap:balance] md:text-7xl"
                 >
-                    THE ENGINEER'S NARRATIVE
+                    The engineer's narrative
                 </h1>
             </div>
-            <div class="flourish my-10 max-w-3xl mx-auto">
-                <span class="flourish-ornament" aria-hidden>༻❁✿❀༺</span>
-            </div>
+            <div class="color-rule my-8 h-px w-full max-w-2xl"></div>
             <div
-                class="grid md:grid-cols-2 gap-8 text-foreground/85 leading-relaxed"
+                class="grid gap-8 text-foreground/85 leading-relaxed md:grid-cols-2"
             >
-                <p>
+                <p class="max-w-prose [text-wrap:pretty]">
                     <span
-                        class="font-serif text-5xl float-left leading-none pr-2 pt-1 text-gold"
+                        class="float-left pr-2 pt-1 font-serif text-5xl leading-none text-moss"
                         >O</span
                     >
                     ver the past 5+ years, I have worked across enterprise web
                     applications, GIS platforms, internal tools, and complex
-                    dashboards — building interfaces that are not only usable,
-                    but reliable in real production environments.
+                    dashboards, building interfaces that are usable, stable, and
+                    reliable in real production environments.
                 </p>
-                <p>
+                <p class="max-w-prose [text-wrap:pretty]">
                     I specialize in frontend engineering with React, Next.js,
                     Vue, and TypeScript, with a strong focus on API integration,
                     state management, performance, maintainability, and clear
@@ -42,14 +41,14 @@ description: Learn more about Rivaldi Putra, a frontend and product engineer bui
             </div>
         </div>
 
-        <aside class="ornate-frame self-start py-6 text-center">
-            <h2 class="font-serif text-xl tracking-[0.15em]">
-                CORE<br />PROFICIENCIES
+        <aside class="ornate-frame color-panel self-start py-6 text-center">
+            <h2 class="title-motion font-serif text-xl leading-tight tracking-[0.04em] text-foreground" style="--title-delay: 120ms">
+                Core proficiencies
             </h2>
             <div
-                class="my-3 h-px bg-gold opacity-60 mx-auto w-2/3"
+                class="color-rule my-3 mx-auto h-px w-2/3 opacity-80"
             ></div>
-            <p className="text-foreground/85 text-sm">React, Next.js,<br />TypeScript</p>
+            <p class="text-sm leading-relaxed text-foreground/85">React, Next.js,<br />TypeScript</p>
             <div
                 class="mt-5 mx-auto w-full max-w-55 overflow-hidden rounded-sm border border-gold/50"
             >
@@ -68,24 +67,24 @@ description: Learn more about Rivaldi Putra, a frontend and product engineer bui
     </div>
 
     <section class="mt-16">
-        <h2 class="font-serif text-2xl mb-6">Experience</h2>
-        <div class="border-t border-gold/40">
+        <h2 class="title-motion mb-6 font-serif text-2xl text-foreground" style="--title-delay: 80ms">Experience</h2>
+        <div class="section-tint border-t">
             {% for item in experience %}
             <div
-                class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-3 py-5 border-b border-gold/40"
+                class="ledger-row grid grid-cols-1 md:grid-cols-[1fr_auto] gap-3 py-5 border-b"
             >
                 <div>
                     <div class="font-semibold text-foreground">
                         {{ item.role }}
                     </div>
-                    <a href="{{ item.link }}" target="_blank" class="text-foreground/70 text-sm italic mt-1">
+                    <a href="{{ item.link }}" target="_blank" rel="noopener noreferrer" class="color-link mt-1 inline-flex text-sm italic text-foreground/70 underline underline-offset-4 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">
                         {{ item.company }}
                     </a>
                     {% if item.tags %}
                     <div class="flex flex-wrap gap-2 mt-3">
                         {% for tag in item.tags %}
                         <span
-                            class="text-[10px] tracking-widest px-2 py-1 border border-gold/60 text-gold"
+                            class="color-chip rounded-sm border px-2 py-1 text-[10px] font-medium tracking-widest"
                         >
                             {{ tag }}
                         </span>
@@ -94,15 +93,15 @@ description: Learn more about Rivaldi Putra, a frontend and product engineer bui
                     {% endif %}
                     <ul class="mt-6">
                         {% for c in item.job %}
-                        <li  class="py-2 flex items-center gap-3 text-foreground/85">
-                          <span class="text-gold">✦</span>
-                          {{ c }}
+                        <li class="flex gap-3 py-2 text-foreground/85">
+                            <span class="accent-mark mt-1" aria-hidden="true">✦</span>
+                            <span>{{ c }}</span>
                         </li>
-                      {% endfor %}
+                        {% endfor %}
                     </ul>
                 </div>
                 <div
-                    class="text-xs tracking-widest text-gold md:text-right md:pt-1"
+                    class="text-xs font-medium tracking-[0.14em] text-foreground/65 md:text-right md:pt-1"
                 >
                     {{ item.date }}
                 </div>
@@ -111,9 +110,9 @@ description: Learn more about Rivaldi Putra, a frontend and product engineer bui
         </div>
     </section>
     <section class="mt-16">
-        <h2 class="font-serif text-2xl mb-6">Technical Skills</h2>
+        <h2 class="title-motion mb-6 font-serif text-2xl text-foreground" style="--title-delay: 120ms">Technical skills</h2>
         <div
-            class="border-t border-gold/40 pt-6 grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-8"
+            class="section-tint border-t pt-6 grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-8"
         >
             {% for s in skills %}
             <div>
@@ -121,7 +120,7 @@ description: Learn more about Rivaldi Putra, a frontend and product engineer bui
                 <div class="flex flex-wrap gap-2">
                     {% for i in s.items %}
                     <span
-                        class="text-[10px] tracking-widest px-2 py-1 border border-gold/60 text-gold"
+                        class="color-chip rounded-sm border px-2 py-1 text-[10px] font-medium tracking-widest"
                     >
                         {{ i }}
                     </span>
@@ -131,17 +130,6 @@ description: Learn more about Rivaldi Putra, a frontend and product engineer bui
             {% endfor %}
         </div>
     </section>
-    <!--<section class="mt-16">
-           <h2 class="font-serif text-2xl mb-6">Certifications</h2>
-           <ul class="border-t border-gold/40">
-               {% for c in certifcations %}
-               <li  class="py-4 border-b border-gold/40 flex items-center gap-3 text-foreground/85">
-                 <span class="text-gold">✦</span>
-                 {{ c.title }}
-                 <a href="{{ c.url }}" target="_blank">(Certificate)</a>
-               </li>
-             {% endfor %}
-           </ul>
-         </section>-->
+
 
 </div>

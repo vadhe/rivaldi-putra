@@ -1,0 +1,14 @@
+{
+  "files": [
+    "_site/index.html",
+    "_site/about/index.html",
+    "_site/blog/index.html",
+    "_site/projects/index.html",
+    "_site/posts/binary-search/index.html",
+    "_site/posts/status-code/index.html"
+  ],
+  "exclude": [],
+  "insertBefore": "</body>",
+  "commentSyntax": "html",
+  "cspChecked": true
+}
