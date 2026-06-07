@@ -1,48 +1,61 @@
 ---
-title: How to handle status code as not considered a network error
+title: Why HTTP status codes are not network errors
 layout: post.html
 seo:
-  title: How to handle status code as not considered a network error | Rivaldi Putra
+  title: Why HTTP status codes are not network errors | Rivaldi Putra
 date: 2023-12-17T11:51:16+07:00
 category: Engineering
-excerpt: Sometimes, if we fetch a REST API from the server (backend) using async await it makes us confused. why is the catch block not invoked? in this article, I will try to explain what I learned from that.
+excerpt: Fetch only rejects for network failures. HTTP responses like 401, 403, and 404 still resolve, so application code needs to inspect the response before parsing it.
 description: A practical note on why fetch does not throw for HTTP status errors like 404, and how to handle that case with async and await.
 tags:
   - posts
 ---
 
-Sometimes, if we fetch a REST API from the server (backend) using async await it makes us confused. why is the catch block not invoked?  in this article, I will try to explain what I learned from that.
+When you call a REST API with `fetch`, `async`, and `await`, a `404` response can look confusing at first. The request failed from the application's point of view, but the `catch` block does not run.
 
-## What is async Await
+That is expected behavior. `fetch` rejects only when the browser cannot complete the network request. HTTP status codes such as `401`, `403`, and `404` are still valid responses from the server.
 
-async/await is simply syntactic sugar for handling operations on promises in JavaScript. We use it in most situations, especially for fetching data from the server. There are other ways to handle asynchronous fetch operations, such as using callbacks instead of try-catch. but in this article, I will use try catch because for me this is more readable than using callback if you want to learn callback you can follow this [link](https://javascript.info/promise-chaining)
+## The common mistake
 
-take a look at this example
+This example intentionally uses the wrong endpoint path:
 
 ```js
-const data = async () => {
+const loadUsers = async () => {
   try {
-    const data = await fetch('https://randomuser.me/apui/?results=5');
-    console.log(data)
-    return data.json();
-  } catch {
-    console.log('error');
+    const response = await fetch("https://randomuser.me/apui/?results=5");
+    console.log(response.status);
+
+    return response.json();
+  } catch (error) {
+    console.log("Network error", error);
   }
 };
 ```
-In this code, I intentionally made a typo for the URL API. As we see we expect the catch block will invoke because there is error 404 but it does not invoke instead it still invokes the try block. why?  because 404 is not considered a network error. it is successful in requesting the server but there is no path https://randomuser.me/apui/?results=5 and  the server sends a response 404. and then to make a catch block invoke we need to throw an error in a try block if there is an error for example how to handle it like this code below
-```
-const data = async () => {
+
+The URL contains `apui` instead of `api`, so the server can return `404`. Even then, the browser received a response successfully. Because of that, `fetch` resolves the promise and execution stays inside the `try` block.
+
+## Check the response before parsing
+
+If your application treats non-2xx responses as errors, check `response.ok` or inspect `response.status` before calling `response.json()`.
+
+```js
+const loadUsers = async () => {
   try {
-    const data = await fetch('https://randomuser.me/apui/?results=5');
-    if(data.status === 404){
-      throw data
+    const response = await fetch("https://randomuser.me/apui/?results=5");
+
+    if (!response.ok) {
+      throw new Error(`Request failed with status ${response.status}`);
     }
-    return data.json();
-  } catch (error){
-    console.log(error.status);
+
+    return response.json();
+  } catch (error) {
+    console.log(error.message);
   }
 };
 ```
-this case it will same if the server response error  403, 401 and 404.
-so that's it from me this is just short article but I hope you can learn something from this article
+
+`response.ok` is `true` for status codes in the `200` to `299` range. For anything outside that range, you can throw your own error and handle it in the `catch` block.
+
+## The rule to remember
+
+Use `catch` for network failures, such as no connection, DNS failure, or a blocked request. Use `response.ok` or `response.status` for server responses that completed but returned an application error.

@@ -81,7 +81,7 @@
         />
         <link
             rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&family=Playfair+Display:wght@400;700;900&display=swap"
             as="style"
             onload="
                 this.onload = null;
@@ -90,68 +90,12 @@
         />
         <noscript>
             <link
-                href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap"
+                href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&family=Playfair+Display:wght@400;700;900&display=swap"
                 rel="stylesheet"
             />
         </noscript>
     </head>
     <body>
-        <div
-            class="loading-screen"
-            data-loading-screen
-            aria-hidden="false"
-            role="status"
-        >
-            <div class="loading-inner">
-                <svg
-                    class="hourglass"
-                    viewBox="0 0 120 160"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-label="Loading"
-                >
-                    <circle
-                        cx="60"
-                        cy="80"
-                        r="50"
-                        fill="oklch(0.9 0.1 75 / 0.25)"
-                    ></circle>
-                    <rect x="20" y="10" width="80" height="6" rx="2" fill="var(--gold)"></rect>
-                    <rect x="20" y="144" width="80" height="6" rx="2" fill="var(--gold)"></rect>
-                    <path
-                        d="M28 16 L92 16 L66 78 L92 144 L28 144 L54 82 Z"
-                        stroke="var(--gold)"
-                        stroke-width="2.5"
-                        fill="oklch(0.97 0.02 85 / 0.4)"
-                    ></path>
-                    <path class="sand-top" d="M34 22 L86 22 L62 76 L58 76 Z" fill="var(--gold)"></path>
-                    <path
-                        class="sand-bottom"
-                        d="M40 138 L80 138 L72 110 L48 110 Z"
-                        fill="var(--gold)"
-                    ></path>
-                    <rect
-                        class="sand-stream"
-                        x="59"
-                        y="78"
-                        width="2"
-                        height="32"
-                        fill="var(--gold)"
-                    ></rect>
-                </svg>
-
-                <div class="progress-frame">
-                    <span class="progress-orn" aria-hidden>❦</span>
-                    <div class="progress-track">
-                        <div class="progress-fill"></div>
-                    </div>
-                    <span class="progress-orn" aria-hidden>❦</span>
-                </div>
-
-                <p class="loading-title">Consulting Archives...</p>
-                <p class="loading-sub">Establishing Connection...</p>
-            </div>
-        </div>
         <div class="min-h-screen flex flex-col">
             <header class="px-7 pt-8 md:px-16">
                 <nav class="flex items-center justify-between text-[15px]">
@@ -238,6 +182,35 @@
                 <span>Blog</span>
             </a>
         </nav>
+        {% if page.url == "/" %}
+        <div
+            class="loading-screen"
+            data-loading-screen
+            aria-hidden="true"
+            hidden
+        >
+            <div class="loading-inner">
+                <div class="ledger-seal" aria-hidden="true">
+                    <span class="ledger-seal-core">RP</span>
+                    <span class="ledger-seal-mark ledger-seal-mark-a"></span>
+                    <span class="ledger-seal-mark ledger-seal-mark-b"></span>
+                    <span class="ledger-seal-mark ledger-seal-mark-c"></span>
+                </div>
+
+                <div class="progress-frame" aria-hidden="true">
+                    <span class="progress-orn">❦</span>
+                    <div class="progress-track">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-orn">❦</span>
+                </div>
+
+                <p class="loading-title">Opening the systems ledger</p>
+                <p class="loading-sub" data-loading-message aria-live="polite">Checking project evidence</p>
+                <button class="loading-skip" type="button" data-loading-skip>Enter portfolio</button>
+            </div>
+        </div>
+        {% endif %}
         <script>
             (() => {
                 const screen = document.querySelector("[data-loading-screen]");
@@ -250,23 +223,43 @@
                 }
 
                 sessionStorage.setItem(sessionKey, "true");
+                screen.hidden = false;
+
+                const message = screen.querySelector("[data-loading-message]");
+                const skip = screen.querySelector("[data-loading-skip]");
+                const lines = [
+                    "Checking project evidence",
+                    "Indexing frontend systems",
+                    "Preparing selected work"
+                ];
+                let lineIndex = 0;
+
+                const dismiss = () => {
+                    screen.classList.add("loading-screen--out");
+                    screen.setAttribute("aria-hidden", "true");
+                };
 
                 requestAnimationFrame(() => {
                     screen.classList.add("loading-screen--mounted");
                 });
 
-                const t1 = setTimeout(() => {
-                    screen.classList.add("loading-screen--out");
-                    screen.setAttribute("aria-hidden", "true");
-                }, 2200);
+                const lineTimer = setInterval(() => {
+                    lineIndex = (lineIndex + 1) % lines.length;
+                    if (message) message.textContent = lines[lineIndex];
+                }, 320);
 
+                skip?.addEventListener("click", dismiss, { once: true });
+
+                const t1 = setTimeout(dismiss, 980);
                 const t2 = setTimeout(() => {
+                    clearInterval(lineTimer);
                     screen.remove();
-                }, 2800);
+                }, 1320);
 
                 window.addEventListener(
                     "pagehide",
                     () => {
+                        clearInterval(lineTimer);
                         clearTimeout(t1);
                         clearTimeout(t2);
                     },
