@@ -295,6 +295,7 @@
     border-color: color-mix(in oklab, var(--page-accent, var(--gold)) 36%, transparent);
     background: linear-gradient(180deg, color-mix(in oklab, var(--page-accent, var(--gold)) 7%, transparent), transparent 18rem);
 }
+
 .article-prose blockquote {
     border: 1px solid color-mix(in oklab, var(--page-accent, var(--gold)) 42%, transparent);
     border-radius: 8px;
@@ -855,13 +856,24 @@
 .article-prose ul,
 .article-prose ol {
     max-width: 68ch;
-    padding-left: 1.35rem;
+    margin-block: 1.15rem;
+    padding-left: 1.5rem;
+}
+.article-prose ul {
+    list-style: disc;
+}
+.article-prose ol {
+    list-style: decimal;
+}
+.article-prose li {
+    padding-left: 0.25rem;
 }
 .article-prose li::marker {
     color: var(--page-accent, var(--gold));
+    font-weight: 700;
 }
 .article-prose li + li {
-    margin-top: 0.45rem;
+    margin-top: 0.55rem;
 }
 .article-prose blockquote {
     max-width: 62ch;
