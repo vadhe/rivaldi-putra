@@ -2,7 +2,7 @@
 title: What I Learned About JWT After Moving My Go Auth to Clerk
 layout: post.html
 seo:
-  title: Binary Search | Rivaldi Putra
+  title: What I Learned About JWT After Moving My Go Auth to Clerk | Rivaldi Putra
 date:  2026-6-09T11:52:04+07:00
 category: Authentication
 excerpt: Moving from custom Go auth to Clerk taught me the importance of a single source of truth and how stateless JWT verification actually works.
